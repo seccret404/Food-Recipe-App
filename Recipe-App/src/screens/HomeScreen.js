@@ -1,13 +1,13 @@
 import React from 'react';
-import { View,Text,StatusBar, ScrollView,Image, StyleSheet } from 'react-native';
+import { View,Text,StatusBar, ScrollView,Image, StyleSheet,TextInput } from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import {BellIcon} from 'react-native-heroicons/outline';
+import {BellIcon, MagnifyingGlassIcon} from 'react-native-heroicons/outline';
 export default function HomeScreen(){
      return(
-          <View>
+          <View style={{backgroundColor:'white',height:'100%'}}>
                <StatusBar barStyle={'dark-content'}/>
 
-               <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{paddingBottom:50}}/>
+               <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{paddingBottom:50}}>
 
            {/* bagianhedaer */}
                <View style={style.header}>
@@ -22,12 +22,21 @@ export default function HomeScreen(){
                     Hello, Edward Tua
                </Text>
                <View>
-                    <Text>
+                    <Text style={style.get}>
                          Get Your Recipe Food Dreams!
                     </Text>
+                    <Text style={style.find}>Find more <Text style={{color:'#ff983f'}}>Recipe Food</Text></Text>
                </View>
           </View>
-          
+
+          {/* search */}
+          <View>
+          <TextInput placeholder='Find more recipew'  style={style.input} />
+          </View>
+          <View style={{backgroundColor:'#ffffff',justifyContent:'rounded'}}>
+               <MagnifyingGlassIcon size={hp(2.5)} color='#111111'/>
+          </View>
+          </ScrollView>
           </View>
      )
 }
@@ -39,6 +48,30 @@ const style = StyleSheet.create({
        alignItems:"center",
        justifyContent:'space-between',
        marginLeft:2,
-       marginRight:2
+       marginRight:2,
+       marginTop:20
+     },
+     get:{
+          fontSize:24,
+          fontWeight:'bold',
+          letterSpacing:2
+
+     },
+     find:{
+          fontSize:24,
+          fontWeight:'bold',
+          letterSpacing:2
+     },
+     input:{
+          fontSize:18,
+          backgroundColor:'grey',
+          opacity:0.1,
+          padding:2,
+         margin:10,
+          color:'#111111',
+          paddingLeft:20,
+          borderRadius:25,
+          height:50
+
      }
 })
