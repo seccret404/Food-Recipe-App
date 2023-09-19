@@ -2,6 +2,7 @@ import React from 'react';
 import { View,Text,StatusBar, ScrollView,Image, StyleSheet,TextInput } from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {BellIcon, MagnifyingGlassIcon} from 'react-native-heroicons/outline';
+import Categori from '../components/categori';
 export default function HomeScreen(){
      return(
           <View style={{backgroundColor:'white',height:'100%'}}>
@@ -31,10 +32,15 @@ export default function HomeScreen(){
 
           {/* search */}
           <View>
-          <TextInput placeholder='Find more recipew'  style={style.input} />
+          <TextInput placeholder='Find more recipe'  style={style.input} />
           </View>
-          <View style={{backgroundColor:'#ffffff',justifyContent:'rounded'}}>
-               <MagnifyingGlassIcon size={hp(2.5)} color='#111111'/>
+          <View style={{backgroundColor:'#ffffff'}}>
+               <MagnifyingGlassIcon size={hp(3)} color='#454040' style={{zIndex:8,marginTop:-43,marginLeft:350,fontWeight:'bold'}}/>
+          </View>
+          
+          {/* categori */}
+          <View>
+               <Categori/>
           </View>
           </ScrollView>
           </View>
@@ -65,13 +71,14 @@ const style = StyleSheet.create({
      input:{
           fontSize:18,
           backgroundColor:'grey',
-          opacity:0.1,
+         
           padding:2,
-         margin:10,
+          margin:10,
           color:'#111111',
           paddingLeft:20,
           borderRadius:25,
-          height:50
+          height:50,
+          zIndex:-1
 
      }
 })
